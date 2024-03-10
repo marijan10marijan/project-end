@@ -44,13 +44,18 @@ const FooterNewsletterForm = () => {
                   aria-invalid="false"
                   aria-required="true"
                 />
+                {state.message.inputMessage.length > 0 ? (
+                  <p  className="newsletter-input__error-mobile">
+                    {state.message.inputMessage}
+                  </p>
+                ) : null}
               </div>
               <div className="form-container__right">
                 <SubmitButton />
               </div>
             </div>
             {state.message.inputMessage.length > 0 ? (
-              <p className="newsletter-input__error">
+              <p className="newsletter-input__error-desktop">
                 {state.message.inputMessage}
               </p>
             ) : null}

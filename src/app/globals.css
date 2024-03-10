@@ -1840,12 +1840,21 @@ header {
   line-height: 29px;
   font-family: var(--ff-inter-regular-400);
 }
-.footer-flex__newsletter .newsletter-input__error {
+.footer-flex__newsletter .newsletter-input__error-mobile {
   color: #f56c6c;
   font-size: 12px;
   line-height: 29px;
   font-family: var(--ff-inter-regular-400);
   padding-block-end: 0px;
+  display: none;
+}
+.footer-flex__newsletter .newsletter-input__error-desktop {
+  color: #f56c6c;
+  font-size: 12px;
+  line-height: 29px;
+  font-family: var(--ff-inter-regular-400);
+  padding-block-end: 0px;
+  display: block;
 }
 
 .uspješna-prijava {
@@ -3047,6 +3056,12 @@ header {
   }
   .image__background-two {
     height: 675px;
+  }
+  .footer-flex__newsletter .newsletter-input__error-mobile {
+    display: block;
+  }
+  .footer-flex__newsletter .newsletter-input__error-desktop {
+    display: none;
   }
 }
 @media (max-width: 505px) {
