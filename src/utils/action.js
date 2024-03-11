@@ -8,7 +8,7 @@ export const submitNewsletter = async (prevState, formData) => {
     if (!email && !checkbox) {
       return {
         message: {
-          inputMessage: "Ovo polje je obavezno",
+          inputMessage: "Ovo polje je obavezno ispuniti",
           checkboxMessage: "Ovo polje je potrebno označiti",
         },
         success: false,
@@ -18,7 +18,7 @@ export const submitNewsletter = async (prevState, formData) => {
     if (!email) {
       return {
         message: {
-          inputMessage: "Ovo polje je obavezno",
+          inputMessage: "Ovo polje je obavezno ispuniti",
           checkboxMessage: "",
         },
         success: false,
@@ -30,7 +30,7 @@ export const submitNewsletter = async (prevState, formData) => {
     if (!emailRegex.test(email) && !checkbox) {
       return {
         message: {
-          inputMessage: "Polje mora sadržavati ispravnu email addresu",
+          inputMessage: "Polje mora sadržavati ispravnu e-mail adresu",
           checkboxMessage: "Ovo polje je potrebno označiti",
         },
         success: false,
@@ -40,7 +40,7 @@ export const submitNewsletter = async (prevState, formData) => {
     if (!emailRegex.test(email)) {
       return {
         message: {
-          inputMessage: "Polje mora sadržavati ispravnu email addresu",
+          inputMessage: "Polje mora sadržavati ispravnu e-mail addresu",
           checkboxMessage: "",
         },
         success: false,
