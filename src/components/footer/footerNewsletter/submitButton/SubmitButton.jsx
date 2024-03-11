@@ -10,6 +10,7 @@ const SubmitButton = () => {
       type="submit"
       name="button"
       className="ff-btn-submit"
+      aria-disabled={pending}
       disabled={pending}
     >
       Prijavi se
