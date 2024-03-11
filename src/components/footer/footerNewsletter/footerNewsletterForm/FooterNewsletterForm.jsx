@@ -5,10 +5,11 @@ import FormSucces from "../formSucces/FormSucces";
 import { submitNewsletter } from "../../../../utils/action";
 import SubmitButton from "../submitButton/SubmitButton";
 import { useFormState } from "react-dom";
+import { usePathname } from "next/navigation";
 
 const FooterNewsletterForm = () => {
   const [isChecked, setIsChecked] = useState(false);
-  const [correctInput, setCorrectInput] = useState("");
+  const path = usePathname();
 
   const initialState = {
     message: {
@@ -46,8 +47,6 @@ const FooterNewsletterForm = () => {
                   data-name="email"
                   aria-invalid="false"
                   aria-required="true"
-                  value={correctInput}
-                  onChange={(e) => setCorrectInput(e.target.value)}
                 />
                 {state.message.inputMessage.length > 0 ? (
                   <p className="newsletter-input__error-mobile">
@@ -59,8 +58,7 @@ const FooterNewsletterForm = () => {
                 <SubmitButton />
               </div>
             </div>
-            {state.message.inputMessage.length > 0 &&
-            !correctInput.length > 0 ? (
+            {state.message.inputMessage.length > 0 ? (
               <p className="newsletter-input__error-desktop">
                 {state.message.inputMessage}
               </p>
@@ -104,6 +102,13 @@ const FooterNewsletterForm = () => {
               </Link>
               .
             </div>
+            <input
+              style={{ display: "none" }}
+              type="text"
+              name="path"
+              value={path}
+              readOnly
+            />
           </div>
           {state.message.checkboxMessage.length > 0 && !isChecked ? (
             <p className="newsletter-checkbox__error">

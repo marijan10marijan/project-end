@@ -4,6 +4,7 @@ export const submitNewsletter = async (prevState, formData) => {
   try {
     const email = formData.get("email");
     const checkbox = formData.get("newsletter");
+    const path = formData.get("path");
 
     if (!email && !checkbox) {
       return {
@@ -65,7 +66,10 @@ export const submitNewsletter = async (prevState, formData) => {
           "Content-Type": "application/x-www-form-urlencoded",
         },
         body: new URLSearchParams({
-          data: `email=${email.replace("@", "%40")}&gdpr-agreement=on`,
+          data: `email=${email.replace(
+            "@",
+            "%40"
+          )}&gdpr-agreement=on&ak_js=${new Date().getTime()}&_wp_http_referer=${path}`,
           action: "fluentform_submit",
           form_id: 2,
         }).toString(),
