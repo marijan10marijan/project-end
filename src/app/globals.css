@@ -2141,6 +2141,9 @@ header {
   .newsletter-izjava__detalji label {
     line-height: 22px;
   }
+  .newsletter-checkbox__error {
+    margin-block-start: 10px;
+  }
   .header-container {
     max-width: 1000px;
   }
