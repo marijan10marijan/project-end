@@ -45,7 +45,7 @@ const FooterNewsletterForm = () => {
                   aria-required="true"
                 />
                 {state.message.inputMessage.length > 0 ? (
-                  <p  className="newsletter-input__error-mobile">
+                  <p className="newsletter-input__error-mobile">
                     {state.message.inputMessage}
                   </p>
                 ) : null}
@@ -66,7 +66,6 @@ const FooterNewsletterForm = () => {
                 type="checkbox"
                 name="newsletter"
                 id="newsletter"
-                value="off"
                 aria-invalid="false"
                 aria-required="true"
               />

@@ -1796,13 +1796,13 @@ header {
   padding-block-start: 8px;
 }
 .newsletter-izjava__detalji label {
-  line-height: 29px;
+  line-height: 24px;
   padding-block-end: 0px;
   cursor: pointer;
 }
 .newsletter-izjava__detalji a {
   color: #19ba70;
-  line-height: 29px;
+  line-height: 24px;
   text-decoration-color: #19ba70;
   text-decoration-line: underline;
   text-decoration-style: solid;
@@ -1948,6 +1948,9 @@ header {
   }
 }
 @media (max-width: 1440px) {
+  .footer-flex__newsletter p {
+    line-height: 24px;
+  }
   .header-container {
     max-width: 1340px;
   }
@@ -2132,6 +2135,12 @@ header {
   }
 }
 @media (max-width: 1199px) {
+  .footer-flex__newsletter p {
+    line-height: 22px;
+  }
+  .newsletter-izjava__detalji label {
+    line-height: 22px;
+  }
   .header-container {
     max-width: 1000px;
   }
@@ -2651,6 +2660,15 @@ header {
   }
 }
 @media (max-width: 767px) {
+  .footer-flex__newsletter p {
+    line-height: 20px;
+  }
+  .newsletter-izjava__detalji label {
+    line-height: 20px;
+  }
+  .newsletter-izjava__detalji a {
+    line-height: 20px;
+  }
   h1,
   h2,
   h3 {
