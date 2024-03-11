@@ -1,12 +1,15 @@
 "use client";
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
 import FormSucces from "../formSucces/FormSucces";
 import { submitNewsletter } from "../../../../utils/action";
 import SubmitButton from "../submitButton/SubmitButton";
 import { useFormState } from "react-dom";
 
 const FooterNewsletterForm = () => {
+  const [isChecked, setIsChecked] = useState(false);
+  const [correctInput, setCorrectInput] = useState("");
+
   const initialState = {
     message: {
       inputMessage: "",
@@ -43,6 +46,8 @@ const FooterNewsletterForm = () => {
                   data-name="email"
                   aria-invalid="false"
                   aria-required="true"
+                  value={correctInput}
+                  onChange={(e) => setCorrectInput(e.target.value)}
                 />
                 {state.message.inputMessage.length > 0 ? (
                   <p className="newsletter-input__error-mobile">
@@ -54,7 +59,8 @@ const FooterNewsletterForm = () => {
                 <SubmitButton />
               </div>
             </div>
-            {state.message.inputMessage.length > 0 ? (
+            {state.message.inputMessage.length > 0 &&
+            !correctInput.length > 0 ? (
               <p className="newsletter-input__error-desktop">
                 {state.message.inputMessage}
               </p>
@@ -68,13 +74,17 @@ const FooterNewsletterForm = () => {
                 id="newsletter"
                 aria-invalid="false"
                 aria-required="true"
+                checked={isChecked}
+                onChange={() => setIsChecked((prev) => !prev)}
               />
             </span>
             <div className="newsletter-izjava__detalji">
               <label className="line-height" htmlFor="newsletter">
                 <div
                   className={
-                    state.message.checkboxMessage ? "errorCheckbox" : ""
+                    state.message.checkboxMessage.length > 0 && !isChecked
+                      ? "errorCheckbox"
+                      : ""
                   }
                 >
                   S newslettera se možeš odjaviti kad god to poželiš, a detalje
@@ -83,7 +93,7 @@ const FooterNewsletterForm = () => {
               </label>
               <Link
                 className={
-                  state.message.checkboxMessage.length > 0
+                  state.message.checkboxMessage.length > 0 && !isChecked
                     ? "errorCheckboxLink line-height"
                     : "line-height"
                 }
@@ -95,7 +105,7 @@ const FooterNewsletterForm = () => {
               .
             </div>
           </div>
-          {state.message.checkboxMessage.length > 0 ? (
+          {state.message.checkboxMessage.length > 0 && !isChecked ? (
             <p className="newsletter-checkbox__error">
               {state.message.checkboxMessage}
             </p>
